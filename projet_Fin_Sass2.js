@@ -303,3 +303,21 @@ function modifierInformationsCandidat(){
         console.log("Candidat introuvable ");        
     }
 }
+
+function supprimerCandidat(){
+    let cinCandidat = prompt("Entre Votre CIN ");
+    let trouve = false;
+
+    for(let candidat in candidats){
+        if(cinCandidat === candidats[candidat].cin){
+            candidats.splice(candidats[candidat],1);
+            console.log("Candidat supprimer avec succes");            
+            trouve = true;
+            break;
+        }
+    }
+    if(!trouve){
+        console.log("candidat introuvable");
+        
+    }
+}
