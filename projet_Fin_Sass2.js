@@ -161,3 +161,37 @@ do{
     
 }
 while(choix !== 0)
+
+function AjouterCandidat(){
+    let cinCandidat = prompt("entre votre CIN s'il vous plait ");
+
+    let trouve = false;
+    for(let candide of candidats){     
+        if(candide.cin === cinCandidat){
+            trouve = true;                              
+            break;
+        }
+    }
+    if(trouve){
+        console.log("candidat deja inscrit ");
+    }
+    else{
+        let nomCondidat = prompt("Entrer Votre Nom S'il vous plait ");
+        let prenomCandidat = prompt("Entrer Votre Prenom S'il vous plait ");
+        let partiPolitique = prompt("Entrer Votre Partie Politique S'il vous plait ") || "Independant";
+        let ageCandidat = Number(prompt("Entrer Votre Age S'il vous plait "));
+
+        const candidat = {
+        cin:cinCandidat,
+        nom : nomCondidat,
+        prenom : prenomCandidat,
+        partiPolitique : partiPolitique,
+        age: ageCandidat,
+        electeurs: []
+        };
+
+        candidats.push(candidat);
+        console.log("Candidat ajouter avec sucess");
+
+    }
+}
