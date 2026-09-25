@@ -248,3 +248,28 @@ function afficherListeCandidats(){
         console.log("choix incorect");
     }  
 }
+
+function VoterCandidat(){
+    let cinElecteur = prompt("Saisir Votre CIN s'il vous plait ");
+    for(let candidat of candidats){
+        for(let cle of candidat.electeurs){
+            if(cinElecteur === cle){
+                console.log("Vous avez deja vote et vous n'avez pas le droit de modifier votre vote ni de voter a nouveau");
+                return;                
+            }
+        }
+    }
+    let cinCandidat = prompt("Entrer le CIN de Candidat pour le Voter ");
+    let find= false;
+    for(let candidat of candidats){
+        if(cinCandidat === candidat.cin){
+            candidat.electeurs.push(cinElecteur);
+            console.log("Votre vote a ete enregistre avec succes");
+            find = true;
+            break;
+        }
+    }
+    if(!find){
+        console.log("Candidat introuvable");
+    }
+}
