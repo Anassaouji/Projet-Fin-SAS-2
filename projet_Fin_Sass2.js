@@ -273,3 +273,33 @@ function VoterCandidat(){
         console.log("Candidat introuvable");
     }
 }
+
+function modifierInformationsCandidat(){
+    let cinCandidat = prompt("Entre votre CIN pour Modifier vous informations ");
+    let trouve = false;
+    for(let candidat of candidats){
+        if(cinCandidat === candidat.cin){
+            trouve =true;
+            console.log("1. Modifier la parti politique d'un candidat.");        
+            console.log("2. Modifier l'age d'un candidat.");        
+            let choice = Number(prompt("Entrer VOtre Choix "));
+            if(choice === 1){
+                let npartPolitique= prompt("entre votre nouveau partie Politique ");
+                candidat.partiPolitique = npartPolitique;
+                console.log("votre Partie politique est modifier avec succes");
+            }
+            else if(choice === 2){
+                let nouveauAge= Number(prompt("entre votre nouveau age "));
+                candidat.age = nouveauAge;
+                console.log("votre age est modifier avec succes");               
+            }
+            else{
+                console.log("choix incorect");               
+            }
+            break;
+        }
+    }
+    if(!trouve){
+        console.log("Candidat introuvable ");        
+    }
+}
