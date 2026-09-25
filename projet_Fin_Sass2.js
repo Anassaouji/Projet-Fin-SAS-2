@@ -331,7 +331,7 @@ function rechercherCandidats(){
                 Identifiant : ${candidat.cin} → nom : ${candidat.nom} → prenom : ${candidat.prenom}
                 → Parite Politique : ${candidat.partiPolitique} → Age : ${candidat.age} 
                 → Nombre de Votes : ${candidat.electeurs.length}`); 
-                
+
             trouve=true;         
         }
     }
@@ -340,4 +340,17 @@ function rechercherCandidats(){
         
     }
 
+}
+
+function triBuble(candidats1){
+    let trim = candidats1[0];
+    for(let i =0 ; i< candidats1.length ; i++){
+        for(let j = 0 ; j< candidats1.length - i-1 ; j++){
+            if(candidats1[j].electeurs.length < candidats1[j+1].electeurs.length){
+                trim = candidats1[j];
+                candidats1[j] = candidats1[j+1];
+                candidats1[j+1] = trim;
+            }
+        }
+    }
 }
