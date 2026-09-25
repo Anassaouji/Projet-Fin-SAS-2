@@ -1,0 +1,163 @@
+const prompt = require("prompt-sync")();
+
+
+const candidats = [
+    {
+        cin: "AB123456",
+        nom: "Boushaba",
+        prenom: "Soufiane",
+        partiPolitique: "Independant",
+        age: 40,
+        electeurs: [
+            "EL100001", 
+            "EL100002"]
+    },
+    {
+        cin: "CD234567",
+        nom: "Alaoui",
+        prenom: "Yassine",
+        partiPolitique: "Parti Social",
+        age: 45,
+        electeurs: [
+            "EL100003", 
+            "EL100004", 
+            "EL100005", 
+            "EL100006"]
+    },
+    {
+        cin: "EF345678",
+        nom: "Bennani",
+        prenom: "Imane",
+        partiPolitique: "Parti Democratique",
+        age: 38,
+        electeurs: [
+            "EL100007",
+            "EL100008", 
+            "EL100009"]
+    },
+    {
+        cin: "GH456789",
+        nom: "El Mansouri",
+        prenom: "Omar",
+        partiPolitique: "Independant",
+        age: 52,
+        electeurs: [
+            "EL100010",
+            "EL100011",
+            "EL100012",
+            "EL100013",
+            "EL100014",
+            "EL100015"
+        ]
+    },
+    {
+        cin: "IJ567890",
+        nom: "Tazi",
+        prenom: "Sara",
+        partiPolitique: "Parti Social",
+        age: 35,
+        electeurs: ["EL100016"]
+    },
+    {
+        cin: "KL678901",
+        nom: "Chraibi",
+        prenom: "Mehdi",
+        partiPolitique: "Parti Democratique",
+        age: 47,
+        electeurs: [
+            "EL100017",
+            "EL100018",
+            "EL100019",
+            "EL100020",
+            "EL100021"
+        ]
+    },
+    {
+        cin: "MN789012",
+        nom: "Fassi",
+        prenom: "Nadia",
+        partiPolitique: "Independant",
+        age: 42,
+        electeurs: [
+            "EL100022", 
+            "EL100023", 
+            "EL100024", 
+            "EL100025"]
+    },
+    {
+        cin: "OP890123",
+        nom: "Benjelloun",
+        prenom: "Ayoub",
+        partiPolitique: "Parti Social",
+        age: 50,
+        electeurs: [
+            "EL100026",
+            "EL100027",
+            "EL100028",
+            "EL100029",
+            "EL100030",
+            "EL100031",
+            "EL100032"
+        ]
+    },
+    {
+        cin: "HH12454",
+        nom: "Benjelloun",
+        prenom: "Dohi",
+        partiPolitique: "Parti Social",
+        age: 35,
+        electeurs: [
+            "EL100033", 
+            "EL100034", 
+            "EL100035"]
+    }
+];
+
+
+
+let choix;
+do{
+    console.log(`
+    =================================
+            MENU DE CHOIX 
+    =================================
+    1. Ajouter un nouveau candidat
+    2. Ajouter plusieurs candidats a la fois
+    3. Afficher la liste des candidats
+    4. Voter pour un candidat
+    5. Modifier les informations d'un candidat
+    6. Supprimer un candidat
+    7. Rechercher des candidats
+    8. Statistiques de l'élection
+    0. Quitter
+    =================================
+    =================================
+    `);
+    choix = Number(prompt("Votre choix S'il vous plait : "));
+
+    switch(choix){
+        case 1 :AjouterCandidat();
+            break;        
+        case 2 :ajouterPlusieursCandidats();
+            break;
+        case 3 :afficherListeCandidats();
+            break;
+        case 4 :VoterCandidat();
+            break;
+        case 5 :modifierInformationsCandidat();
+            break;
+        case 6 :supprimerCandidat();
+            break;
+        case 7 :rechercherCandidats();
+            break;
+            case 8 :statistiques();
+            break;
+        case 0 :
+            console.log(`Au revoire 😊 : `);
+            break;
+        default:
+            console.log("choix incorrect !");
+    }
+    
+}
+while(choix !== 0)
