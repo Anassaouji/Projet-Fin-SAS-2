@@ -203,3 +203,48 @@ function ajouterPlusieursCandidats(){
         AjouterCandidat();
     }
 }
+
+function afficherListeCandidats(){
+    console.log(`
+        1. Afichage Simple
+        2. Trier les candidats par nombre de votes (ordre décroissant pour voir les gagnants)
+        3. Filtrer et afficher uniquement les candidats d'un parti politique spécifique
+        `);         
+    let choixDafiche = Number(prompt("Entrer Votre Choix S'il vous plait "))
+    if(choixDafiche === 1){
+        for(let candidat of candidats){
+            console.log(`
+                Identifiant : ${candidat.cin} → nom : ${candidat.nom} → prenom : ${candidat.prenom}
+                → Parite Politique : ${candidat.partiPolitique} → Age : ${candidat.age} → Nombre de Votes : ${candidat.electeurs.length}
+                `);       
+        }
+    }
+    else if(choixDafiche === 2){
+        triBuble(candidats);       
+        for(let candidat of candidats){
+            console.log(`
+                Identifiant : ${candidat.cin} → nom : ${candidat.nom} → prenom : ${candidat.prenom}
+                → Parite Politique : ${candidat.partiPolitique} → Age : ${candidat.age} → Nombre de Votes : ${candidat.electeurs.length}
+                `);       
+        }
+    }
+    else if(choixDafiche === 3){
+        let partPolitique = prompt("Entrer la partie politique que tu recherche ");
+        let exist = false;
+        for(let candidat of candidats){
+            if(candidat.partiPolitique === partPolitique){
+                    console.log(`
+                Identifiant : ${candidat.cin} → nom : ${candidat.nom} → prenom : ${candidat.prenom}
+                → Parite Politique : ${candidat.partiPolitique} → Age : ${candidat.age} → Nombre de Votes : ${candidat.electeurs.length}
+                `);  
+                exist = true;
+            }
+        }
+        if(exist === false){
+            console.log("Part politique introuvable");
+        }
+    }
+    else{
+        console.log("choix incorect");
+    }  
+}
