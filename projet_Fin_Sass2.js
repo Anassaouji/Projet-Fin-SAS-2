@@ -195,3 +195,11 @@ function AjouterCandidat(){
 
     }
 }
+
+function ajouterPlusieursCandidats(){
+    let nombreCandidats = Number(prompt("Entre le nombre de Candidat A Ajouter par fois "));
+
+    for(let i = 0 ; i < nombreCandidats ; i++){
+        AjouterCandidat();
+    }
+}
