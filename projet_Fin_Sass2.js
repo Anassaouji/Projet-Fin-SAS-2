@@ -321,3 +321,23 @@ function supprimerCandidat(){
         
     }
 }
+
+function rechercherCandidats(){
+    let nomCandidat = prompt("Entre Votre nom pour rechercher : ");
+    let trouve = false;
+    for(let candidat of candidats){
+        if(nomCandidat === candidat.nom){
+            console.log(`
+                Identifiant : ${candidat.cin} → nom : ${candidat.nom} → prenom : ${candidat.prenom}
+                → Parite Politique : ${candidat.partiPolitique} → Age : ${candidat.age} 
+                → Nombre de Votes : ${candidat.electeurs.length}`); 
+                
+            trouve=true;         
+        }
+    }
+    if(!trouve){
+        console.log("Candidat introuvable");
+        
+    }
+
+}
