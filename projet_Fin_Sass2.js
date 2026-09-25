@@ -354,3 +354,44 @@ function triBuble(candidats1){
         }
     }
 }
+
+function statistiques(){
+    console.log("le nombre de candidats est : " + candidats.length);
+    let count = 0;
+    for(let candidat of candidats){
+        count += candidat.electeurs.length;
+    }
+    console.log("le nombre total de votes exprimés " + count);
+
+    if(candidats.length >=3){
+       triBuble(candidats);
+       for(let i =0; i<3 ; i++){
+            console.log(`le Top ${i+1}
+                Identifiant : ${candidats[i].cin} → nom : ${candidats[i].nom} → prenom : ${candidats[i].prenom}
+                → Parite Politique : ${candidats[i].partiPolitique} → Age : ${candidats[i].age} 
+                → Nombre de Votes : ${candidats[i].electeurs.length}
+                `);      
+        }
+    }
+    else{
+        triBuble(candidats);
+        for(let candidat of candidats){
+            console.log(`
+                Identifiant : ${candidat.cin} → nom : ${candidat.nom} → prenom : ${candidat.prenom}
+                → Parite Politique : ${candidat.partiPolitique} → Age : ${candidat.age} → Nombre de Votes : ${candidat.electeurs.length}
+                `);       
+        }
+    }
+    const resultats ={};
+    for(let candidat of candidats){
+        if(resultats[candidat.partiPolitique]){
+            resultats[candidat.partiPolitique]+=1;
+        }
+        else{
+            resultats[candidat.partiPolitique] = 1;
+        }
+    }
+    console.log(resultats);
+    
+
+}
